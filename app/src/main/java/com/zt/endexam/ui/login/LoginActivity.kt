@@ -15,7 +15,7 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 
-import com.zt.endexam.R
+//import com.zt.endexam.R
 
 class LoginActivity : AppCompatActivity() {
 

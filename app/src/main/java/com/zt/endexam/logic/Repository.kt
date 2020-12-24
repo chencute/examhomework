@@ -1,10 +1,10 @@
 package com.zt.endexam.logic
 
-import android.location.Location
+import android.util.Log
 import androidx.lifecycle.liveData
+import com.zt.endexam.logic.model.Location
 import com.zt.endexam.logic.network.SunnyWeatherNetwork
 import kotlinx.coroutines.Dispatchers
-import okhttp3.Dispatcher
 import java.lang.RuntimeException
 
 /**
@@ -18,7 +18,8 @@ object Repository {
         val result = try {
             val placeResponse = SunnyWeatherNetwork.searchPlaces(location)
             if(placeResponse.code == "200") {
-                val locations = placeResponse.locations
+                val locations = placeResponse.location
+                Log.d("Test","${placeResponse}")
                 Result.success(locations)
             } else {
                 Result.failure(RuntimeException("response status is ${placeResponse.code}"))

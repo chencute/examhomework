@@ -2,7 +2,6 @@ package com.zt.endexam.logic.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 /**
  * Retrofit构造器
@@ -15,6 +14,7 @@ object ServiceCreator {
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
 
     fun <T> create(serviceClass: Class<T>):T = retrofit.create(serviceClass)
 

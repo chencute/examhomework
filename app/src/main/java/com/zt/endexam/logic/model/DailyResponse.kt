@@ -1,6 +1,6 @@
 package com.zt.endexam.logic.model
 
-class DailyResponse(
+data class DailyResponse(
         val code: String,
         val daily: List<Daily>,
         val fxLink: String,

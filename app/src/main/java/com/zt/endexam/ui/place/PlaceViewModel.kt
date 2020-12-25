@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.zt.endexam.logic.Repository
+import com.zt.endexam.logic.dao.PlaceDao
 import com.zt.endexam.logic.model.Location
 
 /**
@@ -24,4 +25,10 @@ class PlaceViewModel : ViewModel() {
     fun searchLocations(location:String) {
         searchLiveData.value = location
     }
+
+//    fun savePlace(place:Location) = Repository.savePlace(place)
+//
+//    fun getSavedPlace() = Repository.getSavedPlace()
+//
+//    fun isPlaceSaved() = Repository.isPlaceSaved()
 }

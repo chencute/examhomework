@@ -14,6 +14,6 @@ interface WeatherService {
     fun getRealtimeWeather(@Query("location")location:String):Call<RealtimeResponse>
 
     //访问未来7天 天气信息 location为城市ID
-    @GET("v7/weather/7d?key=${SunnyWeatherApplication.key}")
+    @GET("v7/weather/3d?key=${SunnyWeatherApplication.key}")
     fun getDailyWeather(@Query("location")location:String):Call<DailyResponse>
 }

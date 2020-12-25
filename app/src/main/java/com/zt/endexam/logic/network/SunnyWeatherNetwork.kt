@@ -1,11 +1,8 @@
 package com.zt.endexam.logic.network
 
-import android.util.Log
-import com.zt.endexam.logic.network.SunnyWeatherNetwork.await
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.await
 import java.lang.RuntimeException
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -21,14 +18,14 @@ object SunnyWeatherNetwork {
      * 构造城市服务请求接口
      */
     //创建PlaceService接口的动态代理对象
-    private val placeService = ServiceCreator.create(PlaceService::class.java)
+    private val placeService = PlaceServiceCreator.create(PlaceService::class.java)
     //调用PlaceService接口中定义的serachPlaces()方法 声明为挂起函数
     suspend fun searchPlaces(location:String) = placeService.serachPlaces(location).await()
 
     /**
      * 构造天气具体信息接口
      */
-    private val weatherService = ServiceCreator.create(WeatherService::class.java)
+    private val weatherService = WeatherServiceCreator.create(WeatherService::class.java)
     suspend fun getRealtimeWeather(location:String) = weatherService.getRealtimeWeather(location).await()
     suspend fun getDailyWeather(location:String) = weatherService.getDailyWeather(location).await()
 

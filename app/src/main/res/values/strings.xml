@@ -14,4 +14,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="about_">|</string>
+    <string name="forcast">预报</string>
+    <string name="life_num">生活指数</string>
+    <string name="cloder">降水量</string>
+    <string name="clother">相对湿度</string>
+    <string name="ultravio">紫外线强度</string>
+    <string name="carwash">能见度</string>
 </resources>

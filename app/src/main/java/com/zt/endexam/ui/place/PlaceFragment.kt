@@ -1,6 +1,7 @@
 package com.zt.endexam.ui.place
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.zt.endexam.R
+import com.zt.endexam.ui.weather.WeatherActivity
 
 class PlaceFragment : Fragment() {
 
@@ -35,6 +37,18 @@ class PlaceFragment : Fragment() {
     @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        if(viewModel.isPlaceSaved()) {
+//            val place = viewModel.getSavedPlace()
+//            val intent = Intent(context,WeatherActivity::class.java).apply {
+//                putExtra("cityid",place.id)
+//                putExtra("placeName",place.name)
+//            }
+//            startActivity(intent)
+////            activity?.finish()
+//            return
+//        }
+
         val layoutManager = LinearLayoutManager(activity)
         val recyclerView:RecyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = layoutManager

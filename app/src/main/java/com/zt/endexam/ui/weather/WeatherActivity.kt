@@ -1,5 +1,6 @@
 package com.zt.endexam.ui.weather
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +8,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.zt.endexam.R
 import com.zt.endexam.logic.model.Weather
 import com.zt.endexam.logic.model.getSky
@@ -25,6 +30,8 @@ class WeatherActivity : AppCompatActivity() {
         ViewModelProvider(this,ViewModelProvider.NewInstanceFactory()).get(WeatherViewModel::class.java)
     }
 
+    lateinit var swipeResh:SwipeRefreshLayout
+
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +45,8 @@ class WeatherActivity : AppCompatActivity() {
             viewModel.placeName = intent.getStringExtra("placeName") ?: ""
         }
 
+        swipeResh = findViewById(R.id.swipeResh)
+
         viewModel.weatherLiveData.observe(this, Observer { result ->
             val weather = result.getOrNull()
             if(weather != null) {
@@ -46,8 +55,42 @@ class WeatherActivity : AppCompatActivity() {
                 Toast.makeText(this,"无法成功获取天气信息",Toast.LENGTH_SHORT).show()
                 result.exceptionOrNull() ?.printStackTrace()
             }
+            swipeResh.isRefreshing = false
         })
+
+        swipeResh.setColorSchemeResources(R.color.design_default_color_primary)
+        refreshWeather()
+        swipeResh.setOnRefreshListener {
+            refreshWeather()
+        }
+
+        //滑动菜单
+        val navBtn = findViewById<Button>(R.id.navBtn)
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
+        navBtn.setOnClickListener {
+            //打开滑动菜单
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+        //监听DrawerLayout状态
+        drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
+            override fun onDrawerStateChanged(newState: Int) {}
+
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
+
+            override fun onDrawerOpened(drawerView: View) {}
+
+            override fun onDrawerClosed(drawerView: View) {
+                //当滑动菜单隐藏的时候，同时隐藏输入法
+                val manager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                manager.hideSoftInputFromWindow(drawerView.windowToken,InputMethodManager.HIDE_NOT_ALWAYS)
+            }
+
+        })
+    }
+
+    fun refreshWeather() {
         viewModel.refreshWeather(viewModel.cityid)
+        swipeResh.isRefreshing = true
     }
 
     private fun showWeatherInfo(weather: Weather) {

@@ -20,11 +20,11 @@ object Repository {
     //为了能将异步获取的数据已响应式变成通知上一层，返回liveData对象
     //指定为Dispatchers.IO 使代码运行在子线程中
 
-//    fun savePlace(place:Location) = PlaceDao.savePlace(place)
-//
-//    fun getSavedPlace() = PlaceDao.getSavedPlace()
-//
-//    fun isPlaceSaved() = PlaceDao.isPlaceSaved()
+    fun savePlace(place:Location) = PlaceDao.savePlace(place)
+
+    fun getSavedPlace() = PlaceDao.getSavedPlace()
+
+    fun isPlaceSaved() = PlaceDao.isPlaceSaved()
 
     /**
      * 获取城市信息

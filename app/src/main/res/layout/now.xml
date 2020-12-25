@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nowLayout"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_530"
@@ -11,6 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_70"
         android:fitsSystemWindows="true">
+
+        <Button
+            android:id="@+id/navBtn"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginStart="@dimen/dp_15"
+            tools:ignore="RtlCompat"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_home"/>
+
         <TextView
             android:id="@+id/placeName"
             android:layout_width="wrap_content"

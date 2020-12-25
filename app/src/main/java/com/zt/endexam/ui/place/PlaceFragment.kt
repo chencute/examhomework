@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.zt.endexam.MainActivity
 import com.zt.endexam.R
 import com.zt.endexam.ui.weather.WeatherActivity
 
@@ -38,16 +39,19 @@ class PlaceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        if(viewModel.isPlaceSaved()) {
-//            val place = viewModel.getSavedPlace()
-//            val intent = Intent(context,WeatherActivity::class.java).apply {
-//                putExtra("cityid",place.id)
-//                putExtra("placeName",place.name)
-//            }
-//            startActivity(intent)
-////            activity?.finish()
-//            return
-//        }
+        /**
+         * 如果placeFragment嵌入到MainActivity中，并且之前已经存在选择城市，才跳转到WeatherAcitity
+         */
+        if(activity is MainActivity && viewModel.isPlaceSaved()) {
+            val place = viewModel.getSavedPlace()
+            val intent = Intent(context,WeatherActivity::class.java).apply {
+                putExtra("cityid",place.id)
+                putExtra("placeName",place.name)
+            }
+            startActivity(intent)
+            activity?.finish()
+            return
+        }
 
         val layoutManager = LinearLayoutManager(activity)
         val recyclerView:RecyclerView = view.findViewById(R.id.recyclerView)

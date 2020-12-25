@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.music.MusicFragment"
+    android:background="@color/black_2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dp_20">
+
+        <ImageView
+            android:layout_width="@dimen/dp_300"
+            android:layout_height="@dimen/dp_300"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="@dimen/dp_50"
+            android:src="@drawable/bg_cloudy" />
+
+        <TextView
+            android:id="@+id/musicName"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="歌名："
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/dp_50"
+            android:layout_marginTop="@dimen/dp_30"
+            android:textSize="@dimen/sp_22"/>
+
+        <TextView
+            android:id="@+id/artistName"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="作者："
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/dp_50"
+            android:textSize="@dimen/sp_22"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:paddingStart="@dimen/dp_120"
+            android:paddingTop="@dimen/dp_25"
+            android:orientation="horizontal"
+            tools:ignore="RtlCompat">
+
+            <Button
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                android:background="@drawable/left_play"/>
+
+            <Button
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                android:background="@drawable/start_play"/>
+
+            <Button
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                android:background="@drawable/right_play"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,6 +1,7 @@
 package com.zt.endexam.ui.weather
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.zt.endexam.MainActivity
 import com.zt.endexam.R
 import com.zt.endexam.logic.model.Weather
 import com.zt.endexam.logic.model.getSky
@@ -62,6 +64,13 @@ class WeatherActivity : AppCompatActivity() {
         refreshWeather()
         swipeResh.setOnRefreshListener {
             refreshWeather()
+        }
+
+        //返回主菜单
+        val returnBtn = findViewById<Button>(R.id.returnBtn)
+        returnBtn.setOnClickListener {
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
 
         //滑动菜单

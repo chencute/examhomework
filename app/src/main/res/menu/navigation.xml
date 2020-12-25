@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE menu >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="home"/>
+    <item
+        android:id="@+id/navigation_music"
+        android:icon="@drawable/music"
+        android:title="music"/>
+    <item
+        android:id="@+id/navigation_forecast"
+        android:icon="@drawable/forecast"
+        android:title="forecast"/>
+    <item
+        android:id="@+id/navigation_game"
+        android:icon="@drawable/game"
+        android:title="game"/>
+</menu>

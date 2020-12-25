@@ -21,6 +21,10 @@ import com.zt.endexam.ui.weather.WeatherActivity
 
 class PlaceFragment : Fragment() {
 
+    companion object {
+        fun newInstance() = PlaceFragment()
+    }
+
     //创建viewModel
     val viewModel by lazy {
         ViewModelProvider(this,ViewModelProvider.NewInstanceFactory()).get(PlaceViewModel::class.java)

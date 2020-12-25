@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <fragment
-        android:id="@+id/placeFragment"
-        android:name="com.zt.endexam.ui.place.PlaceFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/bg_all">
+  <FrameLayout
+      android:id="@+id/frameLayout_box"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+      android:layout_weight="1">
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</FrameLayout>
+        android:id="@+id/bottomNav"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/navigation"
+        app:itemIconTint="@color/select_color"/>
+</LinearLayout>

@@ -1,7 +1,11 @@
 package com.zt.endexam.logic
 
 import android.util.Log
+import androidx.core.content.edit
 import androidx.lifecycle.liveData
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.zt.endexam.logic.dao.MusicDao
 import com.zt.endexam.logic.dao.PlaceDao
 import com.zt.endexam.logic.model.Location
 import com.zt.endexam.logic.model.Weather
@@ -20,11 +24,31 @@ object Repository {
     //为了能将异步获取的数据已响应式变成通知上一层，返回liveData对象
     //指定为Dispatchers.IO 使代码运行在子线程中
 
+    //保存地域
     fun savePlace(place:Location) = PlaceDao.savePlace(place)
 
     fun getSavedPlace() = PlaceDao.getSavedPlace()
 
     fun isPlaceSaved() = PlaceDao.isPlaceSaved()
+
+    //保存音乐数据
+    fun savemusicList(musicList:MutableList<String>) = MusicDao.savemusicList(musicList)
+
+    fun getSavedmusicList(): MutableList<String> = MusicDao.getSavedmusicList()
+
+    fun ismusicSaved() = MusicDao.ismusicSaved()
+
+    fun savemusicNameList(musicNameList:MutableList<String>) = MusicDao.savemusicNameList(musicNameList)
+
+    fun getSavedmusicNameList(): MutableList<String> = MusicDao.getSavedmusicNameList()
+
+    fun saveartisitNameList(artisitNameList:MutableList<String>) = MusicDao.saveartisitNameList(artisitNameList)
+
+    fun getSavedartisitNameList(): MutableList<String> = MusicDao.getSavedartisitNameList()
+
+    fun savecurrent(current:Int) = MusicDao.savecurrent(current)
+
+    fun getSavedcurrent(): Int = MusicDao.getSavedcurrent()
 
     /**
      * 获取城市信息

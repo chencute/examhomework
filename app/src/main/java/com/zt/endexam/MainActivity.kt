@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
 
     val musicFragment = MusicFragment.newInstance()
 
+    val musicListFragment = com.zt.endexam.ui.music.musicListFragment.newInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,6 +30,10 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.frameLayout_box,musicFragment)
                             .commit()
+                R.id.navigation_game ->
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frameLayout_box,musicListFragment)
+                        .commit()
             }
             true
         }

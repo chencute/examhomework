@@ -29,6 +29,7 @@ class PlaceFragment : Fragment() {
     val viewModel by lazy {
         ViewModelProvider(this,ViewModelProvider.NewInstanceFactory()).get(PlaceViewModel::class.java)
     }
+
     //创建适配器
     private lateinit var adapter: PlaceAdapter
 

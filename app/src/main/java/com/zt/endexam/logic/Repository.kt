@@ -4,9 +4,9 @@ import android.util.Log
 import androidx.core.content.edit
 import androidx.lifecycle.liveData
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.zt.endexam.logic.dao.MusicDao
-import com.zt.endexam.logic.dao.PlaceDao
+import com.zt.endexam.logic.dao.*
+import com.zt.endexam.logic.model.GameModel.CardMatchingGame
+import com.zt.endexam.logic.model.GameModel.Score
 import com.zt.endexam.logic.model.Location
 import com.zt.endexam.logic.model.Weather
 import com.zt.endexam.logic.network.SunnyWeatherNetwork
@@ -49,6 +49,48 @@ object Repository {
     fun savecurrent(current:Int) = MusicDao.savecurrent(current)
 
     fun getSavedcurrent(): Int = MusicDao.getSavedcurrent()
+
+    //保存当前页面数据
+    fun saveDataStatus(DataStatus:Int)  = dataDao.saveDataStatus(DataStatus)
+
+    fun getDataStatus(): Int = dataDao.getDataStatus()
+
+    fun isDataStatusSaved() = dataDao.isDataStatusSaved()
+
+    //保存游戏玩家得分
+    fun saveScore(scoreList: MutableList<Score>) = scoreDao.saveScore(scoreList)
+
+    fun getSavedScore(): MutableList<Score> = scoreDao.getSavedScore()
+
+    fun isScoreSaved() = scoreDao.isScoreSaved()
+
+    //保存游戏状态
+    fun saveGameStatus(GameStatus:Int) = gameStatusDao.saveGameStatus(GameStatus)
+
+    fun getGameStatus(): Int = gameStatusDao.getGameStatus()
+
+    fun isGameStatusSaved() = gameStatusDao.isGameStatusSaved()
+
+    //保存游戏难度
+    fun saveSetGameStatus(SetGameStatus:Int) = setGamestatusDao.saveSetGameStatus(SetGameStatus)
+
+    fun getSetGameStatus(): Int = setGamestatusDao.getSetGameStatus()
+
+    fun isSetGameStatusSaved() = setGamestatusDao.isSetGameStatusSaved()
+
+    //保存横竖屏状态
+    fun saveCurrentStatus(CurrentStatus:Boolean) = CurrentStatusDao.saveCurrentStatus(CurrentStatus)
+
+    fun getCurrentStatus(): Boolean = CurrentStatusDao.getCurrentStatus()
+
+    fun isCurrentStatusSaved() = CurrentStatusDao.isCurrentStatusSaved()
+
+    //保存游戏数据
+    fun saveGameData(game: CardMatchingGame) = GameDataDao.saveGameData(game)
+
+    fun getSavedGameData(): CardMatchingGame = GameDataDao.getSavedGameData()
+
+    fun isGameDataSaved() = GameDataDao.isGameDataSaved()
 
     /**
      * 获取城市信息

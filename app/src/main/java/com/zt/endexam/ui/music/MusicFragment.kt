@@ -53,6 +53,8 @@ class MusicFragment : Fragment(), ServiceConnection {
 
     lateinit var musicImage:ImageView
 
+    lateinit var drawerLayout:DrawerLayout
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_music, container, false)
@@ -123,24 +125,29 @@ class MusicFragment : Fragment(), ServiceConnection {
         }
 
         val btnList = view.findViewById<Button>(R.id.btnList)
-        val drawerLayout = view.findViewById<DrawerLayout>(R.id.musicdrawerLayout)
+         drawerLayout = view.findViewById<DrawerLayout>(R.id.musicdrawerLayout)
         btnList.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-//        drawerLayout.addDrawerListener(object :DrawerLayout.DrawerListener {
-//            override fun onDrawerStateChanged(newState: Int) {}
-//
-//            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
-//
-//            override fun onDrawerClosed(drawerView: View) {
-//                val manager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//                manager.hideSoftInputFromWindow(drawerView.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
-//            }
-//
-//            override fun onDrawerOpened(drawerView: View) {}
-//
-//        })
+        drawerLayout.addDrawerListener(object :DrawerLayout.DrawerListener {
+            override fun onDrawerStateChanged(newState: Int) {}
+
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
+
+            override fun onDrawerClosed(drawerView: View) {
+                val manager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                manager.hideSoftInputFromWindow(drawerView.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+                if(isPauseStatus) {
+                    btnPlay.setBackgroundResource(R.drawable.stop_play)
+                    isPauseStatus = false
+                }
+                onPlayIndex()
+            }
+
+            override fun onDrawerOpened(drawerView: View) {}
+
+        })
 
     }
 
@@ -173,6 +180,12 @@ class MusicFragment : Fragment(), ServiceConnection {
         intent.putExtra(MusicService.CMOND,5)
         activity?.startService(intent)
         activity?.bindService(intent,this, Context.BIND_AUTO_CREATE)
+    }
+
+    fun onPlayIndex() {
+        val  intent = Intent(context,MusicService::class.java)
+        intent.putExtra(MusicService.CMOND,6)
+        activity?.startService(intent)
     }
 
     //开启服务

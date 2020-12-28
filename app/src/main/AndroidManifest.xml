@@ -18,12 +18,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Endexam"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.game.GameActivity" android:screenOrientation="sensor"></activity>
+
         <service
             android:name=".ui.music.MusicService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
-        <activity android:name=".ui.weather.WeatherActivity" />
+        <activity android:name=".ui.weather.WeatherActivity" android:screenOrientation="sensor"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

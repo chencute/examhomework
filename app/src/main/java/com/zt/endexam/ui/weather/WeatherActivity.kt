@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.zt.endexam.MainActivity
 import com.zt.endexam.R
+import com.zt.endexam.logic.Repository
 import com.zt.endexam.logic.model.Weather
 import com.zt.endexam.logic.model.getSky
 import com.zt.endexam.logic.model.lifeNum

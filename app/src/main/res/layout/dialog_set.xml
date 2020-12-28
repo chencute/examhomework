@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_all">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_30"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/setgame_i"
+            android:gravity="center"
+            android:textColor="@color/grep_1"
+            android:textSize="@dimen/sp_22"
+            android:layout_marginBottom="@dimen/dp_4"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="7"
+            android:layout_marginTop="@dimen/dp_80"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/setGamebtn_jiandan"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_100"
+                android:layout_marginBottom="@dimen/dp_30"
+                android:textColor="@color/black"
+                android:text="@string/esa"
+                android:textSize="@dimen/sp_20" />
+
+            <Button
+                android:id="@+id/setGamebtn_nan"
+                android:layout_width="@dimen/dp_100"
+                android:layout_marginLeft="@dimen/dp_100"
+                android:layout_marginBottom="@dimen/dp_30"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="@string/kunan"
+                android:textSize="@dimen/sp_20" />
+
+            <Button
+                android:id="@+id/setGamebtn_feichangnan"
+                android:layout_width="@dimen/dp_100"
+                android:layout_marginLeft="@dimen/dp_100"
+                android:layout_marginBottom="@dimen/dp_30"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="@string/feicnan"
+                android:textSize="@dimen/sp_20" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/scoreClose"
+                android:layout_width="@dimen/dp_0"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/close"
+                android:textSize="@dimen/sp_20" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

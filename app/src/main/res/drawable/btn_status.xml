@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 点击之后 -->
+    <item android:state_pressed="true">
+
+        <layer-list>
+            <!-- 灰色阴影 -->
+            <item>
+                <shape android:shape="oval">
+                    <padding
+                        android:bottom="2dp"
+                        android:left="3dp"
+                        />
+                    <solid android:color="#40CCCCCC" />
+                    <corners android:radius="8dp" />
+                    <size
+                        android:width="15dp"
+                        android:height="15dp" />
+                </shape>
+            </item>
+
+            <item
+                android:bottom="1dp"
+                android:right="1dp"
+                >
+                <shape
+                    android:shape="oval">
+                    <gradient
+                        android:angle="90"
+                        android:endColor="#F0FF77"
+                        android:startColor="#3CD577" />
+                    <padding
+                        android:bottom="10dp"
+                        android:left="10dp"
+                        android:right="10dp"
+                        android:top="10dp" />
+                    <size
+                        android:width="30dp"
+                        android:height="30dp" />
+                    <stroke android:width="2dp" android:color="#ffffff" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <!-- 正常状态 -->
+    <item>
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+            >
+            <!-- 灰色阴影 -->
+            <item>
+                <shape android:shape="oval">
+                    <padding
+                        android:bottom="2dp"
+                        android:left="3dp"
+                        />
+                    <solid android:color="#40CCCCCC" />
+                    <corners android:radius="8dp" />
+                    <size
+                        android:width="15dp"
+                        android:height="15dp" />
+                </shape>
+            </item>
+
+            <item
+                android:bottom="1dp"
+                android:right="1dp"
+                >
+                <shape
+                    android:shape="oval">
+                    <gradient
+                        android:angle="90"
+                        android:endColor="#F0FF77"
+                        android:startColor="#3CD577" />
+                    <padding
+                        android:bottom="10dp"
+                        android:left="10dp"
+                        android:right="10dp"
+                        android:top="10dp" />
+                    <size
+                        android:width="30dp"
+                        android:height="30dp" />
+                    <stroke android:width="2dp" android:color="#ffffff" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.game.GameInterfaceFragment"
+    android:background="@drawable/bg_card_12">
+
+
+    <RelativeLayout
+        android:id="@+id/gameinterfaceLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/titlegameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_100"
+            android:fitsSystemWindows="true"
+            android:layout_marginTop="@dimen/dp_25"
+            android:layout_marginBottom="@dimen/dp_30">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_60"
+                android:layout_marginEnd="@dimen/dp_60"
+                android:layout_gravity="center"
+                android:singleLine="true"
+                android:gravity="center_vertical"
+                android:text="@string/game_title"
+                android:paddingLeft="@dimen/dp_50"
+                android:ellipsize="middle"
+                android:background="@drawable/bg_card_word_bg_3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_30"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/bodygameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_140"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/startGameBtn"
+                android:layout_width="@dimen/dp_130"
+                android:layout_height="@dimen/dp_60"
+                android:text="@string/startgame"
+                android:background="@drawable/btn_status"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_140"
+                android:textSize="@dimen/sp_22"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/continueGameBtn"
+                android:layout_width="@dimen/dp_130"
+                android:layout_height="@dimen/dp_60"
+                android:text="@string/continueGame"
+                android:background="@drawable/btn_status"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_140"
+                android:textSize="@dimen/sp_22"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/scoreGameBtn"
+                android:layout_width="@dimen/dp_130"
+                android:layout_height="@dimen/dp_60"
+                android:text="@string/scoretotal"
+                android:background="@drawable/btn_status"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_140"
+                android:textSize="@dimen/sp_22"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/reStartGameBtn"
+                android:layout_width="@dimen/dp_130"
+                android:background="@drawable/btn_status"
+                android:layout_height="@dimen/dp_60"
+                android:text="@string/restart"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_140"
+                android:textSize="@dimen/sp_22"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/setGameBtn"
+                android:layout_width="@dimen/dp_130"
+                android:background="@drawable/btn_status"
+                android:layout_height="@dimen/dp_60"
+                android:text="@string/setGame"
+                android:layout_marginLeft="@dimen/dp_140"
+                android:textSize="@dimen/sp_22"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -10,6 +10,7 @@ import com.zt.endexam.logic.model.Location
  * 本地存储城市数据
  */
 object PlaceDao {
+
     fun savePlace(place:Location) {
         sharedPreferences().edit {
             putString("place",Gson().toJson(place))

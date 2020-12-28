@@ -5,7 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
@@ -16,7 +19,7 @@ import com.zt.endexam.logic.Repository
 import com.zt.endexam.logic.model.MusicData
 
 
-class MusicAdapter(private val fragment: musicListFragment,private val musicData:List<MusicData>) : RecyclerView.Adapter<MusicAdapter.ViewHolder>(){
+class MusicAdapter(private val fragment: MusicFragment,private val musicData:List<MusicData>) : RecyclerView.Adapter<MusicAdapter.ViewHolder>(){
 
     inner class ViewHolder(view: View) :RecyclerView.ViewHolder(view) {
         val musicName: TextView = view.findViewById(R.id.musicName)
@@ -38,12 +41,12 @@ class MusicAdapter(private val fragment: musicListFragment,private val musicData
         holder.artistName.text = music.artistName
         holder.itemView.setOnClickListener {
             val position = holder.adapterPosition
-            Log.d("Test","position=${position}")
+//            Log.d("Test","position=${position}")
             Repository.savecurrent(position)
 //           pushFragment(fragment,SunnyWeatherApplication.context)
-            (SunnyWeatherApplication.context as FragmentActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.frameLayout_box, fragment)
-                .commit()
+//            (SunnyWeatherApplication.context as FragmentActivity).supportFragmentManager.beginTransaction()
+//                .replace(R.id.frameLayout_box, fragment)
+//                .commit()
         }
     }
 
@@ -51,7 +54,6 @@ class MusicAdapter(private val fragment: musicListFragment,private val musicData
         newFragment: Fragment?,
         context: Context
     ) {
-            Log.d("Test","${newFragment}")
         val transaction: FragmentTransaction =
             (context as FragmentActivity).supportFragmentManager.beginTransaction()
         newFragment?.let { transaction.replace(R.id.frameLayout_box, it) }
